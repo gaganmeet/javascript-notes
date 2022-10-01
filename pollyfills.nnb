@@ -1,0 +1,72 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "### Array.prototype.map()"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "Array.prototype.myMap = function (callback) {\n    const result = [];\n    for (let i = 0; i < this.length; i++) {\n        result.push(callback(this[i], i, this));\n    }\n    return result;\n};\n    \nconst arr = [1, 2, 3];\nconst result = arr.myMap((item) => item * 2);\nconsole.log(result);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.error",
+                            "value": {
+                                "name": "TypeError",
+                                "message": "arr.myMap is not a function",
+                                "stack": "    at <Cell 2> [10, 15]\n    at <Cell 2> [13, 46]\n    at Script.runInContext (node:vm:139:12)\n    at Script.runInNewContext (node:vm:144:17)\n    at Object.runInNewContext (node:vm:298:38)\n    at C (/Users/prodoge/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:113345)\n    at t.execCode (/Users/prodoge/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:114312)\n    at k.<anonymous> (/Users/prodoge/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:142156)\n    at k.emit (node:events:527:28)\n    at k.emit (node:domain:475:12)"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Array.prototype.filter()"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "Array.prototype.myFilter = function (callback) {\n    const result = [] \n    for (let i = 0; i < this.length; i++) {\n        if (callback(this[i], i, this))\n            result.push(this[i])\n    }\n    return result\n}\n\nconst arr = [1, 2, 3, 4, 5]\nconst res = arr.myFilter((num) => num % 2 === 0)\nconsole.log(res)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.error",
+                            "value": {
+                                "name": "TypeError",
+                                "message": "arr.myFilter is not a function",
+                                "stack": "    at <Cell 4> [11, 12]\n    at <Cell 4> [14, 46]\n    at Script.runInContext (node:vm:139:12)\n    at Script.runInNewContext (node:vm:144:17)\n    at Object.runInNewContext (node:vm:298:38)\n    at C (/Users/prodoge/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:113345)\n    at t.execCode (/Users/prodoge/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:114312)\n    at k.<anonymous> (/Users/prodoge/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:142156)\n    at k.emit (node:events:527:28)\n    at k.emit (node:domain:475:12)"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Array.prototype.reduce()"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "Array.prototype.myReduce = function (callback, initialValue) {\n    let accumulator = initialValue\n    for (let i = 0; i < this.length; i++){\n        accumulator = accumulator ? callback(accumulator, this[i], i, this) : this[i]\n    }\n    return accumulator\n}\n\nconst arr = [1, 2, 3, 4, 5]\nconst sum = arr.myReduce((acc, curr) => {\n    console.log(acc, curr)\n   return acc + curr\n}, 0)\nconsole.log(sum)"
+            ],
+            "outputs": []
+        }
+    ]
+}
